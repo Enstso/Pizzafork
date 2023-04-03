@@ -31,6 +31,6 @@
                 </tbody>
             </table>
         </div>
-        <a class="btn btn-primary" href="/ingredient/create"><i class="fas fa-plus"></i></a>
+        <a href="/ingredient/create" class="btn btn-primary" ><i class="fas fa-plus"></i></a>
     </div>
 @endSection

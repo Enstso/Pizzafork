@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="fr">
 <head>
-    {{$title = "PizzaFork"}}
     
     <!-- Required meta tags -->
     <meta charset="utf-8">

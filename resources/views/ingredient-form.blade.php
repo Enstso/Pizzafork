@@ -5,7 +5,6 @@
             <h1>{{$title }}</h1>
         </div>
         <div class="card-body">
-            <?= session()->has('errors') ? \Config\Services::validation()->listErrors() : '' ?>
             <form class="form-horizontal"
                 action="{{ isset($ingredient) ? route("Ingredient.save.id",["id"=>$ingredient->id]) : route("Ingredient.save") }}"
                 method="post">

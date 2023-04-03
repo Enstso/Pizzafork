@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Garniture',function(Blueprint $table){
+        Schema::create('Garnitures',function(Blueprint $table){
 
             $table->id('id');
             $table->integer('order',false,true)->unique();

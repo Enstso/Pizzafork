@@ -26,7 +26,7 @@ Route::get('pizza/delete/{id}',[PizzaController::class,'delete'])->where('id','[
 Route::post('pizza/save',[PizzaController::class,'save'])->name('Pizza.save');
 Route::post('pizza/save/{id}',[PizzaController::class,'save'])->where('id','[0-9]+')->name('Pizza.save.id');
 
-Route::get('/ingredients',[IngredientController::class,'index']);
+Route::get('/ingredients',[IngredientController::class,'index'])->name('ingredients');
 Route::get('/ingredient/create',[IngredientController::class,'create']);
 Route::get('/ingredient/edit/{id}',[IngredientController::class,'edit'])->where('id','[0-9]+');
 Route::get('/ingredient/delete/{id}',[IngredientController::class,'delete'])->where('id','[0-9]+');

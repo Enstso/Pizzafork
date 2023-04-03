@@ -17,7 +17,7 @@ class GarnitureController extends Controller
     }
 
     public function edit(GarnitureRequest $id){
-
+        
     }
 
     public function delete(int $id){
