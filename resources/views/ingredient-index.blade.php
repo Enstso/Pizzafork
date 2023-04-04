@@ -9,16 +9,18 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Ingredient</th>
-                        <th scope="col">Action</th>
+                        <th scope="col" class="col-3">image</th>
+                        <th scope="col" class="col-3">Ingredient</th>
+                        <th scope="col" class="col-3">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($ingredients as $ingredient)
                     <tr>
                         <th scope="row">{{$ingredient->id }}</th>
-                        <td>{{$ingredient->text }}</td>
-                        <td>
+                        <td class="col-3"><img src="{{ Storage::url($ingredient->picture)}}" alt="" class="img-fluid"></td>
+                        <td class="col-3">{{$ingredient->text }}</td>
+                        <td class="col-3">
                             <a href="/ingredient/edit/{{$ingredient->id}}" class="btn btn-primary" role="button">
                                 <i class="fas fa-edit"></i>
                             </a>

@@ -23,7 +23,7 @@ class IngredientRequest extends FormRequest
     {
         return [
             'text' => 'bail|required|alpha|between:2,100',
-            'picture' => 'bail|required|between:1,100'
+            'picture' => 'required|image|dimensions:min_width=100,min_height=100'
         ];
     }
 }
