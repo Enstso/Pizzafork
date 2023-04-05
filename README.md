@@ -15,24 +15,18 @@ Pour régler les problèmes de compatibilité sur son environnement lors de la r
 étape 2 composer update pour récupérer les différents dossiers/fichiers nécessaire.
 
 
-étape 3 donner les droits suivants au projets : chmod -R 755 nomprojet
+étape 3 renommer le fichier .env.example par .env
 
 
-étape 4 donner les droits suivants au dossier storage du projet : chmod -R o+w nomprojet/storage
+étape 4 générer une clé d'utilisation : php artisan key:generate
 
 
-étape 5 renommer le fichier .env.example par .env
+étape 5 configurer le fichier .env
 
-
-étape 6 générer une clé d'utilisation : php artisan key:generate
-
-
-étape 7 configurer le fichier .env
-
-étape 8 faire un lien symbolique php artisan storage:link
+étape 6 faire un lien symbolique php artisan storage:link
  
-étape 9 Créer la base de données php artisan migrate
+étape 7 Créer la base de données php artisan migrate
 
-étape 10 Remplir la base de données php artisan db:seed
+étape 8 Remplir la base de données php artisan db:seed
 
-étape 11 Nous pouvons nous rendre sur le site en vérifiant le domaine que laragon nous à crée.
+étape 9 Nous pouvons nous rendre sur le site en vérifiant le domaine que laragon nous à crée.
