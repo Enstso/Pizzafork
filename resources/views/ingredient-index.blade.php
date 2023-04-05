@@ -5,12 +5,22 @@
             <h1>{{$title}}</h1>
         </div>
         <div class="card-body">
+            @if(session()->has('info'))
+        <div class="notification is-success">
+            {{ session('info') }}
+        </div>
+    @endif
+    @if(session()->has('info2'))
+        <div class="notification is-danger">
+            {{ session('info') }}
+        </div>
+    @endif
             <table class="table table-hover table-striped">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col" class="col-3">image</th>
-                        <th scope="col" class="col-3">Ingredient</th>
+                        <th scope="col" class="col-3">description</th>
                         <th scope="col" class="col-3">Action</th>
                     </tr>
                 </thead>
@@ -18,7 +28,11 @@
                     @foreach ($ingredients as $ingredient)
                     <tr>
                         <th scope="row">{{$ingredient->id }}</th>
+                        @if ($ingredient->picture[0] == 'i')
                         <td class="col-3"><img src="{{ Storage::url($ingredient->picture)}}" alt="" class="img-fluid"></td>
+                        @else
+                        <td class="col-3"><img src="{{$ingredient->picture}}" alt="" class="img-fluid"></td>
+                        @endif
                         <td class="col-3">{{$ingredient->text }}</td>
                         <td class="col-3">
                             <a href="/ingredient/edit/{{$ingredient->id}}" class="btn btn-primary" role="button">

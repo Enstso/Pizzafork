@@ -16,6 +16,10 @@ return new class extends Migration
             $table->id('id');
             $table->integer('order',false,true)->unique();
             $table->integer('quantity',false,true);
+            $table->unsignedBigInteger('idIngredient');
+            $table->unsignedBigInteger('idPizza');
+            $table->foreign('idIngredient')->references('id')->on('Ingredients');
+            $table->foreign('idPizza')->references('id')->on('Pizzas');
             $table->timestamps();
         });
     }

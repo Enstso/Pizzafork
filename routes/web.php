@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/pizzas',[PizzaController::class,'index']);
+Route::get('/pizzas',[PizzaController::class,'index'])->name('pizza');
 Route::get('pizza/create',[PizzaController::class,'create']);
 Route::get('pizza/edit/{id}',[PizzaController::class,'edit'])->where('id','[0-9]+');
 Route::get('pizza/delete/{id}',[PizzaController::class,'delete'])->where('id','[0-9]+');
@@ -33,7 +33,7 @@ Route::get('/ingredient/delete/{id}',[IngredientController::class,'delete'])->wh
 Route::post('/ingredient/save',[IngredientController::class,'save'])->name('Ingredient.save');
 Route::post('/ingredient/save/{id}',[IngredientController::class,'save'])->where('id','[0-9]+')->name('Ingredient.save.id');
 
-Route::get('/pizza/ingredients/{id}',[GarnitureController::class,'index'])->where('id','[0-9]+');
+Route::get('/pizza/ingredients/{id}',[GarnitureController::class,'index'])->where('id','[0-9]+')->name('garnitures');
 Route::get('/pizza/ingredient/create/{id}',[GarnitureController::class,'create'])->where('id','[0-9]');
 Route::get('/pizza/ingredient/edit/{id}',[GarnitureController::class,'edit'])->where('id','[0-9]');
 Route::get('pizza/ingredient/delete/{id}',[GarnitureController::class,'delete'])->where('id','[0-9]');

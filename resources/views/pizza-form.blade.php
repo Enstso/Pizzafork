@@ -7,7 +7,6 @@
             </h1>
         </div>
         <div class="card-body">
-            <?= session()->has('errors') ? \Config\Services::validation()->listErrors() : '' ?>
             <form class="form-horizontal" action="{{ isset($pizza) ? route("Pizza.save.id",["id"=>$pizza->id]) : route(Pizza.save) }}"
                 method="post">
                 @csrf

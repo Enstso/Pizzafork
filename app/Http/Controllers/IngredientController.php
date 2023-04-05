@@ -15,7 +15,7 @@ class IngredientController extends Controller
         $ingredients = Ingredient::all();
         $titre = 'Ingrédients';
         $data = ["title" => $titre, 'ingredients' => $ingredients];
-
+        $ingredients = Ingredient::oldest('text')->paginate(5);
         return view('ingredient-index', $data);
     }
 
@@ -39,7 +39,7 @@ class IngredientController extends Controller
         $ingredient = Ingredient::find($id);
         Storage::disk('public')->delete($ingredient->picture);
         Ingredient::destroy($id);
-        return redirect()->route('ingredients');
+        return redirect()->route('ingredients')->with('info2','ingrédient supprimée');
     }
 
     public function save(IngredientRequest $request)
@@ -60,6 +60,6 @@ class IngredientController extends Controller
         }
 
         $ingredientModel->save();
-        return redirect()->route('ingredients');
+        return redirect()->route('ingredients')->with('info','ingrédient sauvegardée');
     }
 }
