@@ -12,10 +12,10 @@ class IngredientController extends Controller
 {
     public function index(): view
     {
-        $ingredients = Ingredient::all();
+        $ingredients = Ingredient::paginate(3);
         $titre = 'Ingrédients';
         $data = ["title" => $titre, 'ingredients' => $ingredients];
-        $ingredients = Ingredient::oldest('text')->paginate(5);
+        
         return view('ingredient-index', $data);
     }
 

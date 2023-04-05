@@ -20,19 +20,19 @@
                     <tr>
                         <th scope="row my-3 border-bottom pb-3">
                             @if ($ingredient->picture[0] == 'i')
-                                <img src="{{ Storage::url($ingredient->picture) }}" class="imgz">
+                                <img src="{{ Storage::url($ingredient->picture) }}" class="img-fluid">
                             @else
-                                <img src="{{ $ingredient->picture }}" class="imgz">
+                                <img src="{{ $ingredient->picture }}" class="img-fluid">
                             @endif
                         </th>
-                        <td>{{ $ingredient->pivot->ordre }}</td>
-                        <td>{{ $ingredient->pivot->quantite }}</td>
+                        <td>{{ $ingredient->pivot->order }}</td>
+                        <td>{{ $ingredient->pivot->quantity }}</td>
                         <td>
-                            <a href="/modifier-garniture/{{ $pizza->id }}/{{ $ingredient->id }}"
+                            <a href="/pizza/ingredient/edit/{{ $pizza->id }}"
                                 class="btn btn-primary" role="button">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <a href="/supprimer-garniture/{{ $pizza->id }}/{{ $ingredient->id }}"
+                            <a href="/pizza/ingredient/delete/{{ $pizza->id }}"
                                 class="btn btn-danger" role="button">
                                 <i class="fas fa-trash-alt"></i>
                             </a>
@@ -44,10 +44,10 @@
             </tbody>
                 @endforelse
         </table>
-        <a class="btn btn-primary" href="/">Voir Pizzas</a>
-        <a class="btn btn-primary" href="/ingredient">Voir Ingrédients</a>
+        <a class="btn btn-primary" href="/pizzas">Voir Pizzas</a>
+        <a class="btn btn-primary" href="/ingredients">Voir Ingrédients</a>
     </div>
-    <a class="btn btn-primary" href="/ajouter-garniture/{{ $pizza->id }}"><i class="fas fa-plus"></i></a>
+    <a class="btn btn-primary" href="/pizza/ingredient/create/{{ $pizza->id }}"><i class="fas fa-plus"></i></a>
 </div>
 
 @endSection

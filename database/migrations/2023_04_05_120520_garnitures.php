@@ -18,8 +18,8 @@ return new class extends Migration
             $table->integer('quantity',false,true);
             $table->unsignedBigInteger('idIngredient');
             $table->unsignedBigInteger('idPizza');
-            $table->foreign('idIngredient')->references('id')->on('Ingredients');
-            $table->foreign('idPizza')->references('id')->on('Pizzas');
+            $table->foreign('idIngredient')->references('id')->on('Ingredients')->onDelete('cascade');
+            $table->foreign('idPizza')->references('id')->on('Pizzas')->onDelete('cascade');
             $table->timestamps();
         });
     }

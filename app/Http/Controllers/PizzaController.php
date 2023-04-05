@@ -10,10 +10,10 @@ use Illuminate\Support\Facades\Storage;
 class PizzaController extends Controller
 {
     public function index() : View{
-        $pizzas= Pizza::all();
+        $pizzas= Pizza::paginate(3);
         $titre = 'Pizza';
         $data = ["title" => $titre, 'pizzas' => $pizzas];
-        $pizzas = Pizza::oldest('text')->paginate(5);
+
         return view('pizza-index', $data);
     }
 

@@ -6,15 +6,16 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use App\Http\Requests\GarnitureRequest;
 use App\Models\Garniture;
+use App\Models\Pizza;
 use Illuminate\Support\Facades\Storage;
 class GarnitureController extends Controller
 
 {
-    public function index() : view{
-        $Garnitures = Garniture::all();
-        $titre = 'Garnitures';
-        $data = ["title" => $titre, 'ingredients' => $Garnitures];
-        $Garnitures= Garniture::oldest('text')->paginate(5);
+    public function index(int $id) : view{
+        $Pizza = Pizza::find($id);
+        $ingredients = $Pizza->ingredients()->orderBy('order')->get();
+        $data = ['ingredients' => $ingredients,'pizza'=>$Pizza];
+
         return view('garniture-index',$data);
     }
 

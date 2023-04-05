@@ -5,14 +5,14 @@
             <h1>{{ $title }}</h1>
         </div>
         <div class="card-body">
-            @if(session()->has('info'))
-        <div class="notification is-success">
+            @if(session('info'))
+        <div class="alert alert-success" role="alert">
             {{ session('info') }}
         </div>
     @endif
-    @if(session()->has('info2'))
-        <div class="notification is-danger">
-            {{ session('info') }}
+    @if(session('info2'))
+        <div class="alert alert-danger" role="alert">
+            {{ session('info2') }}
         </div>
     @endif
             <table class="table table-hover table-striped">
@@ -28,7 +28,11 @@
                     @foreach ($pizzas as $pizza)
                         <tr>
                             <th scope="row">{{$pizza->id }}</th>
+                            @if ($pizza->picture[0] == 'i')
                             <td class="col-3"><img src="{{ Storage::url($pizza->picture)}}" alt="" class="img-fluid"></td>
+                            @else
+                            <td class="col-3"><img src="{{$pizza->picture}}" alt="" class="img-fluid"></td>
+                            @endif
                             <td class="col-3">{{$pizza->text }}</td>
                             <td class="col-3">
                                 <a href="/pizza/edit/{{$pizza->id}}" class="btn btn-primary" role="button">
@@ -46,6 +50,7 @@
                     @endforeach
                 </tbody>
             </table>
+            {{$pizzas->links()}}
         </div>
         <a class="btn btn-primary" href="/pizza/create"><i class="fas fa-plus"></i></a>
     </div>

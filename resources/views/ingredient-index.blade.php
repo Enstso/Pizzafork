@@ -5,14 +5,14 @@
             <h1>{{$title}}</h1>
         </div>
         <div class="card-body">
-            @if(session()->has('info'))
-        <div class="notification is-success">
+            @if(session('info'))
+        <div class="alert alert-success" role="alert">
             {{ session('info') }}
         </div>
     @endif
-    @if(session()->has('info2'))
-        <div class="notification is-danger">
-            {{ session('info') }}
+    @if(session('info2'))
+        <div class="alert alert-danger" role="alert">
+            {{ session('info2') }}
         </div>
     @endif
             <table class="table table-hover table-striped">
@@ -46,6 +46,7 @@
                  @endforeach 
                 </tbody>
             </table>
+            {{ $ingredients->links() }}
         </div>
         <a href="/ingredient/create" class="btn btn-primary" ><i class="fas fa-plus"></i></a>
     </div>
