@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Garniture extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['id','order','quantity','idIngredient','idPizza'];
 }

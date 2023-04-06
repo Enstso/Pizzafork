@@ -23,7 +23,9 @@ class GarnitureRequest extends FormRequest
     {
         return [
             'order' => 'bail|required',
-            'quantity' => 'bail|required'
+            'quantity' => 'bail|required',
+            'idIngredient' => 'bail|required',
+            'idPizza'   => 'bail|required'
         ];
     }
 }

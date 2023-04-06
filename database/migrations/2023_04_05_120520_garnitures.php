@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('Garnitures',function(Blueprint $table){
 
             $table->id('id');
-            $table->integer('order',false,true)->unique();
+            $table->integer('order',false,true);
             $table->integer('quantity',false,true);
             $table->unsignedBigInteger('idIngredient');
             $table->unsignedBigInteger('idPizza');

@@ -5,7 +5,9 @@
             <h1>{{ $title }}</h1>
         </div>
         <div class="card-body">
-            <form class="form-horizontal" action="{{ isset($ingredient) ? route('Ingredient.save.id', ['id' => $ingredient->id]) : route('Ingredient.save') }}" method="post" enctype="multipart/form-data">
+            <form class="form-horizontal"
+                action="{{ isset($ingredient) ? route('Ingredient.save.id', ['id' => $ingredient->id]) : route('Ingredient.save') }}"
+                method="post" enctype="multipart/form-data">
                 @csrf
                 <div class=form-group>
                     <div class="row">

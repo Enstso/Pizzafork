@@ -5,7 +5,9 @@
             <h1>{{ $title }}</h1>
         </div>
         <div class="card-body">
-            <form class="form-horizontal" action="{{ isset($pizza) ? route('Pizza.save.id', ['id' => $pizza->id]) : route('Pizza.save') }}" method="post" enctype="multipart/form-data">
+            <form class="form-horizontal"
+                action="{{ isset($pizza) ? route('Pizza.save.id', ['id' => $pizza->id]) : route('Pizza.save') }}"
+                method="post" enctype="multipart/form-data">
                 @csrf
                 <div class=form-group>
                     <div class="row">
@@ -26,5 +28,8 @@
                 </button>
             </form>
         </div>
+    </div>
+    <div class="mt-3">
+    <a href="{{route('pizzas')}}" class="btn btn-primary">Voir les pizzas</a>
     </div>
 @endSection

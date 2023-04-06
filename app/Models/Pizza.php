@@ -14,6 +14,6 @@ class Pizza extends Model
     protected $fillable = ['text','picture'];
 
     public function ingredients() :BelongsToMany{
-        return $this->belongsToMany(Ingredient::class,'garnitures','idPizza','idIngredient')->withPivot('order','quantity');
+        return $this->belongsToMany(Ingredient::class,'garnitures','idPizza','idIngredient')->withPivot('id','order','quantity','idPizza','idIngredient');
     }
 }

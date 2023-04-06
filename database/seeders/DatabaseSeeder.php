@@ -21,11 +21,11 @@ class DatabaseSeeder extends Seeder
         Pizza::factory(10)->create();
         $count = Pizza::all();
         $i=1;
-        if(count($count)>10){
-            $i = count($count) + 1;
+        if($count->count()>10){
+            $i = $count->count() - 9 ;
         }
 
-        for($i;$i<10;$i++){
+        for($i;$i<=$count->count();$i++){
             DB::table('garnitures')->insert([
                 
                 "idIngredient"=>$i,
