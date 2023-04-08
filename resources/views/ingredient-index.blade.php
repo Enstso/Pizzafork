@@ -53,6 +53,6 @@
         <a href="/ingredient/create" class="btn btn-primary"><i class="fas fa-plus"></i></a>
     </div>
     <div class="mt-3">
-        <a href="{{route('pizzas')}}" class="btn btn-primary">Voir les pizzas</a>
-        </div>
+        <a href="{{ route('pizzas') }}" class="btn btn-primary">Voir les pizzas</a>
+    </div>
 @endSection

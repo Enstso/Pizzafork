@@ -29,4 +29,7 @@
             </form>
         </div>
     </div>
+    <div class="mt-3">
+        <a href="{{ route('ingredients') }}" class="btn btn-primary">Retour</a>
+    </div>
 @endSection

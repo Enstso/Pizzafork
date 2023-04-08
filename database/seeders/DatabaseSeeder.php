@@ -17,20 +17,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Ingredient::factory(10)->create();
-        Pizza::factory(10)->create();
+        //Ingredient::factory(2)->create();
+        Ingredient::create(['text'=>config('app.nom'),'picture'=>config('app.picture')]);
+        Pizza::factory(2)->create();
         $count = Pizza::all();
         $i=1;
-        if($count->count()>10){
-            $i = $count->count() - 9 ;
+        if($count->count()>2){
+            $i = $count->count() - 1 ;
         }
 
         for($i;$i<=$count->count();$i++){
             DB::table('garnitures')->insert([
                 
-                "idIngredient"=>$i,
-                "order"=>$i,
-                "quantity"=>$i,
+                "idIngredient"=>config('app.id'),
+                "order"=>config('app.order'),
+                "quantity"=>config('app.quantity'),
                 "idPizza"=>$i
             ]);
         }

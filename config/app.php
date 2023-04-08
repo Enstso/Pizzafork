@@ -15,7 +15,13 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'PizzaFork'),
+
+    'id'=>1,
+    'order'=>1,
+    'quantity'=>1,
+    'nom'=>"pâte à pain",
+    'picture'=>"https://www.mister-j.fr/wp-content/uploads/pate-a-pizza-maison.jpg",
 
     /*
     |--------------------------------------------------------------------------

@@ -36,7 +36,7 @@
                 </button>
             </form>
             <div class="mt-3">
-                <a href="{{ route('pizzas') }}" class="btn btn-primary">Voir les pizzas</a>
+                <a href="{{ route('pizzas') }}" class="btn btn-primary">Retour</a>
             </div>
         </div>
     </div>
