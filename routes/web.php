@@ -15,10 +15,8 @@ use App\Http\Controllers\PizzaController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+Route::get('/',[PizzaController::class,'index'])->name('pizzas');
 Route::get('/pizzas',[PizzaController::class,'index'])->name('pizzas');
 Route::get('/pizza/create',[PizzaController::class,'create']);
 Route::get('/pizza/edit/{id}',[PizzaController::class,'edit'])->where('id','[0-9]+');

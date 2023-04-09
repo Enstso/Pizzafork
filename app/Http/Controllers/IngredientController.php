@@ -55,11 +55,15 @@ class IngredientController extends Controller
         $picture = $request->picture->storeAs("images", $filename, 'public');
         $ingredientModel = new Ingredient;
         if (isset($request->id)) {
-            $ingredientModel = Ingredient::find($request->id);
-            Storage::disk('public')->delete($ingredientModel->picture);
-
-            $ingredientModel->text = $request->text;
-            $ingredientModel->picture = $picture;
+            if ($request->id != 1) {
+                $ingredientModel = Ingredient::find($request->id);
+                Storage::disk('public')->delete($ingredientModel->picture);
+                $ingredientModel->text = $request->text;
+                $ingredientModel->picture = $picture;
+            } 
+            else {
+                return redirect()->route('ingredients')->with('info2', 'Vous ne pouvez pas modifier la pâte à pizza');
+            }
         } else {
             if ($ingredients->count() == 0) {
                 $ingredientModel->text = config('app.nom');

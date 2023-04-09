@@ -15,11 +15,18 @@
                             <form-label for="text ">Pizza : </form-label>
                             <input type="text" name="text"
                                 id="text"value="{{ old('text', $pizza->text ?? '', false) }}"
-                                placeholder="Nom de la pizza">
+                                placeholder="Nom de la pizza" class="form-control  @error('text') is-invalid @enderror">
+                            @error('text')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="col-12 mt-3">
                             <form-label for="picture">Image : </form-label>
-                            <input type="file" name="picture" id="picture">
+                            <input type="file" name="picture" id="picture"
+                                class="form-control  @error('picture') is-invalid @enderror">
+                            @error('picture')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                 </div>

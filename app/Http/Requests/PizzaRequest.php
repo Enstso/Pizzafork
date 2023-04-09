@@ -22,7 +22,7 @@ class PizzaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'text' => 'bail|required|alpha|between:2,100',
+            'text' => 'bail|required|regex:/^[\pL\s\-]+$/u|between:2,100',
             'picture' => 'required|image|dimensions:min_width=100,min_height=100'
         ];
     }

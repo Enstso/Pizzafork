@@ -35,7 +35,12 @@ class PizzaController extends Controller
         $pizza = Pizza::find($id);
         $garnitures = Garniture::where('idPizza',$id)->get();
         foreach($garnitures as $garniture){
+            if($garniture->idIngredient==1){
+                $pate = $garniture;
+            }
+            else{
             Garniture::destroy($garniture);
+            }
         }
         Storage::disk('public')->delete($pizza->picture);
         Pizza::destroy($id);
@@ -59,6 +64,6 @@ class PizzaController extends Controller
             $pizzaModel->save();
             $pizzaModel->ingredients()->attach(config('app.id'),['order'=>config('app.order'),'quantity'=>config('app.quantity'),'idPizza'=>$pizzaModel->id]);
         }
-        return redirect()->route('pizzas')->with('info','pizza enregistree');
+        return redirect()->route('pizzas')->with('info','pizza enregistrée');
     }
 }
