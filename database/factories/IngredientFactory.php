@@ -22,3 +22,4 @@ class IngredientFactory extends Factory
         ];
     }
 }
+

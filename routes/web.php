@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GarnitureController;
 use App\Http\Controllers\IngredientController;
 use App\Http\Controllers\PizzaController;
+use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +18,26 @@ use App\Http\Controllers\PizzaController;
 |
 */
 
+/*
+Route::get('/', function () {
+    return view('welcome');
+});
+*/
 
+
+Route::get('/accueil', [HomeController::class, 'index'])->name('home');
+
+
+
+Auth::routes();
+
+/*
+Route::middleware(['auth'])->group(function(){
+    Route::get('/accueil', [HomeController::class, 'index'])->name('home');
+});
+*/
+Route::middleware(['auth','admin'])->group(function(){
+    
 Route::get('/',[PizzaController::class,'index'])->name('pizzas');
 Route::get('/pizzas',[PizzaController::class,'index'])->name('pizzas');
 Route::get('/pizza/create',[PizzaController::class,'create']);
@@ -37,4 +59,4 @@ Route::get('/pizza/ingredient/edit/{id}',[GarnitureController::class,'edit'])->w
 Route::get('pizza/ingredient/delete/{id}',[GarnitureController::class,'delete'])->where('id','[0-9]');
 Route::post('/pizza/ingredient/save',[GarnitureController::class,'save'])->name('Garniture.save');
 Route::post('/pizza/ingredient/save/{id}',[GarnitureController::class,'save'])->where('id','[0-9]+')->name('Garniture.save.id');
-
+});

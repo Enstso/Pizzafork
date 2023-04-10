@@ -27,3 +27,4 @@ class PizzaRequest extends FormRequest
         ];
     }
 }
+

@@ -65,3 +65,4 @@ class GarnitureController extends Controller
         return redirect()->route('pizzas')->with('info','Ganiture sauvegadée');
     }
 }
+

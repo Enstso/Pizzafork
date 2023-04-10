@@ -27,3 +27,4 @@ class IngredientRequest extends FormRequest
         ];
     }
 }
+

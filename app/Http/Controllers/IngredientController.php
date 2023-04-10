@@ -81,3 +81,4 @@ class IngredientController extends Controller
         return redirect()->route('ingredients')->with('info', 'ingrédient enregistrée');
     }
 }
+
