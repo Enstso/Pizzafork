@@ -25,12 +25,12 @@ Route::get('/', function () {
 */
 
 
-Route::get('/accueil', [HomeController::class, 'index'])->name('home');
+
 
 
 
 Auth::routes();
-
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 /*
 Route::middleware(['auth'])->group(function(){
     Route::get('/accueil', [HomeController::class, 'index'])->name('home');

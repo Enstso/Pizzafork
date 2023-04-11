@@ -8,24 +8,25 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * @return void
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create('Pizzas',function(Blueprint $table){
-            $table->id('id');
-            $table->string('text',100)->nullable(false);
-            $table->string('picture',100);
-            $table->decimal('prix',9,2);
+        Schema::create('Panier', function (Blueprint $table) {
+            $table->id();
+            $table->
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists('Pizza');
+        Schema::dropIfExists('Panier');
     }
 };
-
