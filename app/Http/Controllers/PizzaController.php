@@ -56,11 +56,13 @@ class PizzaController extends Controller
             Storage::disk('public')->delete($pizzaModel->picture);
             $pizzaModel->text = $request->text;
             $pizzaModel->picture = $picture;
+            $pizzaModel->prix = $request->prix;
             $pizzaModel->save();
         } else {
             
             $pizzaModel->text = $request->text;
             $pizzaModel->picture = $picture;
+            $pizzaModel->prix = $request->prix;
             $pizzaModel->save();
             $pizzaModel->ingredients()->attach(config('app.id'),['order'=>config('app.order'),'quantity'=>config('app.quantity'),'idPizza'=>$pizzaModel->id]);
         }

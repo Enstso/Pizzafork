@@ -30,6 +30,14 @@
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
+                            <div class="col-12 mt-3">
+                                <form-label for="picture">Prix : </form-label>
+                                <input type="number" name="prix" id="prix"
+                                    class="form-control  @error('prix') is-invalid @enderror">
+                                @error('prix')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
                     </div>
                     <button class="btn btn-primary" type="submit">

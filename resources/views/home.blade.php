@@ -13,6 +13,7 @@
                             <th scope="col">#</th>
                             <th scope="col" class="col-3">Pizza</th>
                             <th scope="col" class="col-3">description</th>
+                            <th scope="col" class="col-3">prix</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -27,6 +28,9 @@
                                     </td>
                                 @endif
                                 <td class="col-3">{{ $pizza->text }}</td>
+                                <td class="col-3">{{$pizza->prix .' €' }}</td>
+
+                                <td><a href="{{}}" class="btn btn-dark me-2">Au panier</a></td>
                             </tr>
                         @endforeach
                     </tbody>

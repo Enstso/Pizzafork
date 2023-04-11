@@ -23,6 +23,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col" class="col-3">Pizza</th>
                                 <th scope="col" class="col-3">description</th>
+                                <th scope="col" class="col-3">Prix</th>
                                 <th scope="col" class="col-3">Action</th>
                             </tr>
                         </thead>
@@ -39,6 +40,7 @@
                                         </td>
                                     @endif
                                     <td class="col-3">{{ $pizza->text }}</td>
+                                    <td class="col-3">{{ $pizza->prix .' €' }}</td>
                                     <td class="col-3">
                                         <a href="/pizza/edit/{{ $pizza->id }}" class="btn btn-primary" role="button">
                                             <i class="fas fa-edit"></i>

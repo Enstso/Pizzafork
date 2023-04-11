@@ -19,7 +19,8 @@ class PizzaFactory extends Factory
         return [
 
             'text' => fake()->sentence(3, true),
-            'picture' =>  fake()->imageUrl($width = 640, $height = 480)
+            'picture' =>  fake()->imageUrl($width = 640, $height = 480),
+            'prix'  => fake()->randomNumber(2)
         ];
     }
 }
