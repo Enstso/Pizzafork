@@ -29,6 +29,6 @@ class PanierController extends Controller
         }
         $data = ['pizzas' => $pizzas,'user'=>$user,'depensesTotal'=>$depensesTotal];
 
-        return view('panier',$data);
+        return view('commande',$data);
     }
 }

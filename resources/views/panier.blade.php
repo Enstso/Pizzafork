@@ -1,3 +1,5 @@
+@extends('layouts.app')
+@section('body')
 <div class="container">
             <h1 class="text-dark mt-120">Panier</h1>
             @foreach ($pizzas as $pizza) 
