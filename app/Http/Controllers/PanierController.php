@@ -27,21 +27,25 @@ class PanierController extends Controller
          $panier->idUser = $idUser;
          $panier->idPizza = $idPizza;
          $panier->save();
+         return redirect()->route('home');
     }
 
     public function delete(int $idPanier){
         Panier::destroy($idPanier);
+        return redirect()->back()->with('info2','Pizza supprimée du panier');
     }
 
-     public function Commander(int $idUser){
-        $user = User::find($idUser);
-        $pizzas = $user->pizzas()->where('acheter',0)->where('idUser',$user->id)->get();
+     public function Commander(int $idUser,int $depenseTotal){
+        
+        
+        $pizzas = Panier::where('acheter',0)->where('idUser',$idUser)->get();
         foreach($pizzas as $pizza){
             $pizza->acheter =1;
             $pizza->date_commande = now();
+            $pizza->depense_Total = $depenseTotal; 
             $pizza->save();
         }
-
+        return redirect()->route('home')->with('info', 'Pizzas commandées');
      }
 
     public function Commande(int $idUser, $idPanier) : View {
@@ -58,7 +62,8 @@ class PanierController extends Controller
     }
 
     public function Commandes (int $idUser) : View{
-        $paniers = Panier::where('idUser',$idUser)->distinct()->get();
+        //$paniers = Panier::select('idUser','date_commande','depense_total')->distinct('idUser')->where('idUser',$idUser)->get();
+        $paniers = Panier::where('idUser',$idUser)->groupBy('idUser')->get();
         $data = ['paniers'=>$paniers];
         return view('commandes',$data);
     }

@@ -16,17 +16,13 @@ class admin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(isset(auth()->user()->admin)){
-            if(auth()->user()->admin == 1){
-            return $next($request);
+        if (isset(auth()->user()->admin)) {
+            if (auth()->user()->admin == 1) {
+                return $next($request);
             }
-            else{
-                abort(404);
-            }
+            return redirect('home');
         }
-        else{
-            abort(404);
-        }
-        
+        return redirect('home');
+
     }
 }

@@ -14,13 +14,13 @@
 
                             </div>
                             <div class="ms-3">
-                                <h5>Pizzas du {{ $panier->date }}</h5>
+                                <h5>Pizzas du {{ $panier->date_commande }}</h5>
                                 <a href="/commande/{{Auth::user()->id }}/{{$panier->id}}" class="small mb-0">ma commande</a>
                             </div>
                         </div>
                         <div class="d-flex flex-row align-items-center">
                             <div style="width: 80px;">
-                                <h5 class="mb-0">{{ $panier->quantity * $panier->prix. ' €' }}</h5>
+                                <h5 class="mb-0">{{  $panier->depense_total . ' €' }}</h5>
                             </div>
                         </div>
                     </div>
@@ -28,3 +28,4 @@
             </div>
         @endforeach
     </div>
+@endsection

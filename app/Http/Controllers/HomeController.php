@@ -11,11 +11,12 @@ class HomeController extends Controller
      *
      * @return void
      */
+    /*
     public function __construct()
     {
         $this->middleware('auth');
     }
-
+*/
     /**
      * Show the application dashboard.
      *
@@ -30,17 +31,7 @@ class HomeController extends Controller
         return view('home',$data);
     }
 
-    public function redirect()
-    {
-        redirect()->route('home');
-    }
+    
 
-    public function accueil()
-    {
-        $pizzas= Pizza::paginate(2);
-        $title = 'Pizzas';
-        $data = ["title" => $title, 'pizzas' => $pizzas];
-
-        return view('accueil',$data);
-    }
+   
 }

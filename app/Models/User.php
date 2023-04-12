@@ -46,11 +46,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getId(){
-        return $this->id;
+    
+
+    public function pizzas() :BelongsToMany{
+        return $this->belongsToMany(Pizza::class,'Panier','idUser','idPizza')->withPivot('id','acheter','idUser','idpizza');
     }
 
-    public function paniers() :BelongsToMany{
-        return $this->belongsToMany(Pizza::class,'Panier','idUser','idPizza')->withPivot('id','quantity','acheter','idUser','idpizza');
-    }
+  
 }

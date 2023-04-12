@@ -6,8 +6,20 @@
             <div class="card-header">
                 <h1>{{ $title }}</h1>
             </div>
-            {{$user_id = Auth::id()}}
+            <div hidden>
+                {{ $user_id = Auth::id() }}
+            </div>
             <div class="card-body">
+                @if (session('info'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('info') }}
+                    </div>
+                @endif
+                @if (session('info2'))
+                    <div class="alert alert-danger" role="alert">
+                        {{ session('info2') }}
+                    </div>
+                @endif
                 <table class="table table-hover table-striped">
                     <thead>
                         <tr>
@@ -31,8 +43,9 @@
                                 <td class="col-3">{{ $pizza->text }}</td>
                                 <td class="col-3">{{ $pizza->prix . ' €' }}</td>
                                 @if (isset($user_id))
-                                <td><a href="/panier/{{Auth::id()}}/{{$pizza->id}}" class="btn btn-dark me-2">Au panier</a></td>
-                            @endif
+                                    <td><a href="/panier/{{ $user_id }}/{{ $pizza->id }}"
+                                            class="btn btn-dark me-2">Au panier</a></td>
+                                @endif
                             </tr>
                         @endforeach
                     </tbody>
