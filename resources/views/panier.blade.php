@@ -25,7 +25,7 @@
                                 <div style="width: 80px;">
                                     <h5 class="mb-0">{{$pizza->prix}} €</h5>
                                 </div>
-                                <a href="" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                                <a href="panier/delete/{{}}" class="btn btn-danger"><i class="bi bi-trash"></i></a>
                             </div>
                         </div>
                     </div>
@@ -34,7 +34,7 @@
 
             
             
-                <a href="" class="btn btn-dark me-2">Commander</a>
+                <a href="/commander/{{Auth::user()->id}}" class="btn btn-dark me-2">Commander</a>
             
             
                 <p>Prix total {{$prixTotal .' €'}}</p>

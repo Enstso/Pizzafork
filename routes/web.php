@@ -5,6 +5,8 @@ use App\Http\Controllers\GarnitureController;
 use App\Http\Controllers\IngredientController;
 use App\Http\Controllers\PizzaController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\HomeauthController;
+use App\Http\Controllers\PanierController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -29,13 +31,25 @@ Route::get('/', function () {
 
 
 
-Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 /*
 Route::middleware(['auth'])->group(function(){
     Route::get('/accueil', [HomeController::class, 'index'])->name('home');
 });
 */
+
+Route::middleware(['auth','user'])->group(function(){
+    Route::get('/', [HomeController::class, 'redirect']);
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/panier/{idUser}/{idPizz}',[PanierController::class,'auPanier']);
+    Route::get('/panier/{id}',[PanierController::class,'index']);
+    Route::get('/commandes/{id}',[PanierController::class,'Commandes']);
+    Route::get('/commande/{idUser}/{idPanier}',[PanierController::class,'Commande']);
+    Route::get('/commander/{idUser}',[PanierController::class,'Commander']);
+    Route::get('panier/delete/{idPanier}',[PanierController::class,'delete']);
+});
+
+Auth::routes();
 Route::middleware(['auth','admin'])->group(function(){
     
 Route::get('/',[PizzaController::class,'index'])->name('pizzas');

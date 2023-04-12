@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('Panier', function (Blueprint $table) {
             $table->id();
-            $table->string('quantity',100);
             $table->boolean('acheter')->default(0);
             $table->unsignedBigInteger('idUser');
             $table->unsignedBigInteger('idPizza');
+            $table->decimal('depense_total',9,2)->nullable(true);
             $table->timestamp('date_commande')->nullable(true);
             $table->foreign('idUser')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('idPizza')->references('id')->on('Pizzas')->onDelete('cascade');

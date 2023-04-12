@@ -9,5 +9,5 @@ class Panier extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['quantity','acheter','idUser','idPizza'];
+    protected $fillable = ['id','quantity','acheter','idUser','idPizza','depense_total'];
 }

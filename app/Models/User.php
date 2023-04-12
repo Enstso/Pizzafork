@@ -19,10 +19,12 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'id',
         'name',
         'email',
         'password',
         'admin',
+        
     ];
 
     /**
@@ -43,6 +45,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getId(){
+        return $this->id;
+    }
 
     public function paniers() :BelongsToMany{
         return $this->belongsToMany(Pizza::class,'Panier','idUser','idPizza')->withPivot('id','quantity','acheter','idUser','idpizza');
