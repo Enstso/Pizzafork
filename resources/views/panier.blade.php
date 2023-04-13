@@ -34,8 +34,12 @@
                             </div>
                         </div>
                         <div class="d-flex flex-row align-items-center">
+                            <a href="/quantity/moins/{{$pizza->pivot->id}}" class="btn btn-light" role="button" ><i class="fas fa-minus"></i></a>
+                           
+                            <h5 class="text-center">{{$pizza->pivot->quantity}}</h5>
+                            <a href="/quantity/plus/{{$pizza->pivot->id}}" class="btn btn-light" role="button" ><i class="fas fa-plus"></i></a>
                             <div style="width: 80px;">
-                                <h5 class="mb-0">{{ $pizza->prix }} €</h5>
+                                <h5 class="mb-0">{{ $pizza->prix * $pizza->pivot->quantity  }} €</h5>
                             </div>
                             <a href="/delete/{{ $pizza->pivot->id }}" class="btn btn-danger"><i class="bi bi-trash"></i></a>
                         </div>

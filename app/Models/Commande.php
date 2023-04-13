@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Panier extends Model
+class Commande extends Model
 {
     use HasFactory;
-
-    protected $table = 'panier';
-    protected $fillable = ['id','acheter','quantity','idUser','idPizza','idCommande'];
+    protected $table = 'commande';
+    protected $fillable = ['id','total','date_commande'];
 
     
+
 }

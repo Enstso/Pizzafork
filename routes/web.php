@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GarnitureController;
 use App\Http\Controllers\IngredientController;
@@ -45,15 +44,16 @@ Route::middleware(['auth'])->group(function () {
 
     Route::middleware(['user'])->group(function () {
         Route::get('/', [HomeController::class, 'index'])->name('home');
-
-        //Route::get('/home', [HomeController::class, 'index'])->name('home');
         Route::get('/panier/{idUser}/{idPizz}', [PanierController::class, 'auPanier']);
         Route::get('/panier/{id}', [PanierController::class, 'index']);
         Route::get('/commandes/{id}', [PanierController::class, 'Commandes']);
         Route::get('/commande/{idUser}/{idPanier}', [PanierController::class, 'Commande']);
         Route::get('/commander/{idUser}/{depense_total}', [PanierController::class, 'Commander']);
         Route::get('/delete/{idPanier}', [PanierController::class, 'delete']);
+        Route::get('/quantity/moins/{id}',[PanierController::class, 'moins']);
+        Route::get('/quantity/plus/{id}',[PanierController::class,'plus']);
     });
+
     Route::middleware(['admin'])->group(function () {
         Route::get('/', [PizzaController::class, 'index'])->name('pizzas');
         Route::get('/pizzas', [PizzaController::class, 'index'])->name('pizzas');

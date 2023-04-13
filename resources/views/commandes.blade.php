@@ -19,6 +19,8 @@
                             </div>
                         </div>
                         <div class="d-flex flex-row align-items-center">
+                            
+
                             <div style="width: 80px;">
                                 <h5 class="mb-0">{{  $panier->depense_total . ' €' }}</h5>
                             </div>

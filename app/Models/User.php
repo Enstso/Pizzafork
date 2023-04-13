@@ -49,8 +49,12 @@ class User extends Authenticatable
     
 
     public function pizzas() :BelongsToMany{
-        return $this->belongsToMany(Pizza::class,'Panier','idUser','idPizza')->withPivot('id','acheter','idUser','idpizza');
+        return $this->belongsToMany(Pizza::class,'panier','idUser','idPizza')->withPivot('id','acheter','quantity','idUser','idpizza');
     }
 
-  
+    public function commandes() :BelongsToMany{
+        return $this->belongsToMany(Commande::class,'panier','idUser','idCommande')->withPivot('id','total','date_commande');
+    }
 }
+  
+
