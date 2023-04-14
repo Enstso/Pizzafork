@@ -10,7 +10,5 @@ class Panier extends Model
     use HasFactory;
 
     protected $table = 'panier';
-    protected $fillable = ['id','acheter','quantity','idUser','idPizza','idCommande'];
-
-    
+    protected $fillable = ['id', 'acheter', 'quantity', 'idUser', 'idPizza', 'idCommande'];
 }

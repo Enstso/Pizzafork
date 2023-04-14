@@ -7,6 +7,16 @@
                     <h1>{{ $pizza->text }}</h1>
                 </div>
                 <div class="card-body">
+                    @if (session('info'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('info') }}
+                        </div>
+                    @endif
+                    @if (session('info2'))
+                        <div class="alert alert-danger" role="alert">
+                            {{ session('info2') }}
+                        </div>
+                    @endif
                     <table class="table table-hover table-striped">
 
                         <thead>

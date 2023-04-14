@@ -9,5 +9,5 @@ class Ingredient extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['text','picture'];
+    protected $fillable = ['text', 'picture'];
 }

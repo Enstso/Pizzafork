@@ -9,10 +9,12 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Panier;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-    
+
     /**
      * The attributes that are mass assignable.
      *
@@ -24,7 +26,7 @@ class User extends Authenticatable
         'email',
         'password',
         'admin',
-        
+
     ];
 
     /**
@@ -46,15 +48,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    
-
-    public function pizzas() :BelongsToMany{
-        return $this->belongsToMany(Pizza::class,'panier','idUser','idPizza')->withPivot('id','acheter','quantity','idUser','idpizza');
+    public function pizzas(): BelongsToMany
+    {
+        return $this->belongsToMany(Pizza::class, 'panier', 'idUser', 'idPizza')->withPivot('id', 'acheter', 'quantity', 'idUser', 'idpizza');
     }
 
-    public function commandes() :BelongsToMany{
-        return $this->belongsToMany(Commande::class,'panier','idUser','idCommande')->withPivot('id','total','date_commande');
+    public function commandes(): HasMany
+    {
+        return $this->hasMany(Commande::class, 'idUser');
     }
 }
-  
-

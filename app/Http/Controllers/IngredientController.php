@@ -13,7 +13,7 @@ class IngredientController extends Controller
 {
     public function index(): view
     {
-        $ingredients = Ingredient::paginate(2);
+        $ingredients = Ingredient::paginate(3);
         $titre = 'Ingrédients';
         $data = ["title" => $titre, 'ingredients' => $ingredients];
 
@@ -44,7 +44,7 @@ class IngredientController extends Controller
             $ingredient = Ingredient::find($id);
             Storage::disk('public')->delete($ingredient->picture);
             Ingredient::destroy($id);
-            return redirect()->route('ingredients')->with('info2', 'ingrédient supprimée');
+            return redirect()->route('ingredients')->with('info2', 'ingrédient supprimé');
         }
     }
 
@@ -60,8 +60,7 @@ class IngredientController extends Controller
                 Storage::disk('public')->delete($ingredientModel->picture);
                 $ingredientModel->text = $request->text;
                 $ingredientModel->picture = $picture;
-            } 
-            else {
+            } else {
                 return redirect()->route('ingredients')->with('info2', 'Vous ne pouvez pas modifier la pâte à pizza');
             }
         } else {
@@ -78,7 +77,6 @@ class IngredientController extends Controller
         }
 
         $ingredientModel->save();
-        return redirect()->route('ingredients')->with('info', 'ingrédient enregistrée');
+        return redirect()->route('ingredients')->with('info', 'ingrédient enregistré');
     }
 }
-

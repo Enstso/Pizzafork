@@ -6,7 +6,7 @@
             <div class="card-header">
                 <h1>{{ $title }}</h1>
             </div>
-            <div >
+            <div hidden>
                 {{ $user_id = Auth::id() }}
             </div>
             <div class="card-body">
@@ -21,33 +21,32 @@
                     </div>
                 @endif
                 <table class="table table-hover table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col" class="col-3">Pizza</th>
-                            <th scope="col" class="col-3">description</th>
-                            <th scope="col" class="col-3">prix</th>
-                        </tr>
-                    </thead>
                     <tbody>
-                        @foreach ($pizzas as $pizza)
-                            <tr>
-                                <th scope="row">{{ $pizza->id }}</th>
-                                @if ($pizza->picture[0] == 'i')
-                                    <td class="col-3"><img src="{{ Storage::url($pizza->picture) }}" alt=""
-                                            class="img-fluid"></td>
-                                @else
-                                    <td class="col-3"><img src="{{ $pizza->picture }}" alt="" class="img-fluid">
-                                    </td>
-                                @endif
-                                <td class="col-3">{{ $pizza->text }}</td>
-                                <td class="col-3">{{ $pizza->prix . ' €' }}</td>
-                                @if (isset($user_id))
-                                    <td><a href="/panier/{{ $user_id }}/{{ $pizza->id }}"
-                                            class="btn btn-dark me-2">Au panier</a></td>
-                                @endif
-                            </tr>
-                        @endforeach
+                        <div class="row">
+                            @foreach ($pizzas as $pizza)
+                                <div class="col-12 col-md-6 col-lg-4 mb-2">
+                                    <div class="card mx-auto" style="width: 18rem;">
+
+                                        @if ($pizza->picture[0] == 'i')
+                                            <img src="{{ Storage::url($pizza->picture) }}" alt="imagePizza"
+                                                class="card-img-top border">
+                                        @else
+                                            <img src="{{ $pizza->picture }}" alt="imagePizza" class="card-img-top border">
+                                        @endif
+                                        <div class="card-body">
+
+
+                                            <h5 class="card-title">{{ $pizza->text }}</h5>
+                                            <p class="card-text">{{ $pizza->prix . ' €' }}</p>
+                                            @if (isset($user_id))
+                                                <a href="/panier/{{ $user_id }}/{{ $pizza->id }}"
+                                                    class="btn btn-dark me-2">Au panier</a>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
                     </tbody>
                 </table>
                 {{ $pizzas->links() }}

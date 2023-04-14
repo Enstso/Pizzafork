@@ -1,10 +1,10 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GarnitureController;
 use App\Http\Controllers\IngredientController;
 use App\Http\Controllers\PizzaController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\HomeauthController;
 use App\Http\Controllers\PanierController;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,26 +19,9 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-/*
-Route::get('/', function () {
-    return view('welcome');
-});
-*/
-
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+
 Auth::routes();
-
-
-
-
-/*
-Route::middleware(['auth'])->group(function(){
-    Route::get('/accueil', [HomeController::class, 'index'])->name('home');
-});
-*/
-
-
-
 
 Route::middleware(['auth'])->group(function () {
 
@@ -47,11 +30,11 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/panier/{idUser}/{idPizz}', [PanierController::class, 'auPanier']);
         Route::get('/panier/{id}', [PanierController::class, 'index']);
         Route::get('/commandes/{id}', [PanierController::class, 'Commandes']);
-        Route::get('/commande/{idUser}/{idPanier}', [PanierController::class, 'Commande']);
+        Route::get('/commande/{idUser}/{idCommande}', [PanierController::class, 'Commande']);
         Route::get('/commander/{idUser}/{depense_total}', [PanierController::class, 'Commander']);
         Route::get('/delete/{idPanier}', [PanierController::class, 'delete']);
-        Route::get('/quantity/moins/{id}',[PanierController::class, 'moins']);
-        Route::get('/quantity/plus/{id}',[PanierController::class,'plus']);
+        Route::get('/quantity/moins/{id}', [PanierController::class, 'moins']);
+        Route::get('/quantity/plus/{id}', [PanierController::class, 'plus']);
     });
 
     Route::middleware(['admin'])->group(function () {

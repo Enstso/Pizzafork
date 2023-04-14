@@ -9,5 +9,5 @@ class Garniture extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['id','order','quantity','idIngredient','idPizza'];
+    protected $fillable = ['id', 'order', 'quantity', 'idIngredient', 'idPizza'];
 }

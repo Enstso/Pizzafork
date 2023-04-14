@@ -16,17 +16,10 @@ class user
      */
     public function handle(Request $request, Closure $next)
     {
-
-       
-            if(auth()->user()->admin == 0){
+        if (auth()->user()->admin == 0) {
             return $next($request);
-            }
-            else{
-                abort(401);
-            }
+        } else {
+            abort(401);
         }
     }
-        
-    
-
-  
+}

@@ -40,7 +40,7 @@
                                         </td>
                                     @endif
                                     <td class="col-3">{{ $pizza->text }}</td>
-                                    <td class="col-3">{{ $pizza->prix .' €' }}</td>
+                                    <td class="col-3">{{ $pizza->prix . ' €' }}</td>
                                     <td class="col-3">
                                         <a href="/pizza/edit/{{ $pizza->id }}" class="btn btn-primary" role="button">
                                             <i class="fas fa-edit"></i>
@@ -55,6 +55,7 @@
                                         </a>
                                     </td>
                                 </tr>
+                                
                             @endforeach
                         </tbody>
                     </table>

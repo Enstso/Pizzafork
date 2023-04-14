@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->decimal('total',9,2)->nullable(true);
             $table->timestamp('date_commande')->nullable(true);
+            $table->unsignedBigInteger('idUser');
+            $table->foreign('idUser')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

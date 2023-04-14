@@ -27,11 +27,22 @@ class PanierController extends Controller
 
     public function auPanier(int $idUser, int $idPizza)
     {
-        $panier = new Panier;
-        $panier->idUser = $idUser;
-        $panier->idPizza = $idPizza;
-        $panier->save();
-        return redirect()->route('home');
+        $validation  = 1;
+        $panierEnCours = Panier::where('idUser', $idUser)->where('acheter', 0)->get();
+        foreach ($panierEnCours as $panier) {
+            if ($panier->idPizza == $idPizza) {
+                $this->Plus($panier->id);
+                $validation = 0;
+            }
+        }
+        if ($validation == 1) {
+            $panier = new Panier;
+            $panier->idUser = $idUser;
+            $panier->idPizza = $idPizza;
+            $panier->save();
+            return redirect()->route('home');
+        }
+        return redirect()->back();
     }
 
     public function delete(int $idPanier)
@@ -44,13 +55,14 @@ class PanierController extends Controller
     {
         $pizzas = Panier::where('acheter', 0)->where('idUser', $idUser)->get();
         $commande = new Commande;
+        $commande->idUser = $idUser;
         $commande->save();
-        $commandeEnCours= Commande::all();
-        $commandeEnCours= $commandeEnCours->count();
+        $commandeEnCours = Commande::all();
+        $commandeEnCours = $commandeEnCours->count();
         $commande = Commande::find($commandeEnCours);
-        
-        foreach ($pizzas as $pizza) { 
-            
+
+        foreach ($pizzas as $pizza) {
+
             $pizza->acheter = 1;
             $pizza->idCommande = $commande->id;
             $pizza->save();
@@ -61,27 +73,22 @@ class PanierController extends Controller
         return redirect()->route('home')->with('info', 'Pizzas commandées');
     }
 
-    public function Commande(int $idUser, $idPanier): View
+    public function Commande(int $idUser, $idCommande): View
     {
+        $commande = Commande::find($idCommande);
         $user = User::find($idUser);
         $depensesTotal = 0;
-        $pizzas = $user->pizzas()->where('acheter', 1)->where('idUser', $user->id)->where('idPanier', $idPanier)->get();
-        foreach ($pizzas as $pizza) {
-            $depensesTotal = $depensesTotal + $pizza->prix;
-        }
-        $data = ['pizzas' => $pizzas, 'user' => $user, 'depensesTotal' => $depensesTotal];
-
+        $pizzas = $commande->pizzas()->get();
+        $depensesTotal = $commande->total;
+        $data = ['pizzas' => $pizzas, 'commande' => $commande, 'depensesTotal' => $depensesTotal];
         return view('commande', $data);
     }
 
     public function Commandes(int $idUser): View
     {
-        $paniers = User::find($idUser);
-        $paniers = $paniers->commandes()->get();
-        //$paniers = Panier::select('idUser','date_commande','depense_total')->distinct('idUser')->where('idUser',$idUser)->get();
-        //$paniers = Panier::where('idUser', $idUser)->groupBy('idUser')->get();
-        //$paniers = Commande::find
-        $data = ['paniers' => $paniers];
+        $user = User::find($idUser);
+        $commandes = $user->commandes()->where('idUser', $idUser)->get();
+        $data = ['commandes' => $commandes];
         return view('commandes', $data);
     }
 

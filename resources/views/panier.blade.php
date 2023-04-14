@@ -47,8 +47,14 @@
                 </div>
             </div>
         @endforeach
+        @if ($prixTotal!=0)
         <a href="/commander/{{ Auth::id() }}/{{$prixTotal}}" class="btn btn-dark me-2">Commander</a>
 
         <p class="mt-3">Prix total {{ $prixTotal . ' €' }}</p>
+    
+    @else
+        <p>Votre panier est vide </p>
+    
+    @endif
     </div>
 @endSection

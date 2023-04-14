@@ -30,10 +30,10 @@ class DatabaseSeeder extends Seeder
         }
         //Ingredient::factory(2)->create();
         Ingredient::create(['text' => config('app.nom'), 'picture' => config('app.picture')]);
-        Pizza::factory(2)->create();
+        Pizza::factory(3)->create();
         $count = Pizza::all();
         $i = 1;
-        if ($count->count() > 2) {
+        if ($count->count() > 3) {
             $i = $count->count() - 1;
         }
 

@@ -24,9 +24,18 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
+    <style>
+        .logo {
+        height : 140px;
+        width :130px;
+        margin: 0;
+        padding: 0;
+        }
+    </style>
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    
 </head>
 
 <body>
@@ -34,7 +43,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    PizzaFork
+                    <img src="https://img.freepik.com/vecteurs-premium/logo-pizza-fondante-restaurant-pizzeria-modele-icone-logo-fromage-fondant_8580-559.jpg?w=2000" class="logo" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

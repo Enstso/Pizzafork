@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Pizza;
 use Illuminate\Http\Request;
 
@@ -11,12 +12,7 @@ class HomeController extends Controller
      *
      * @return void
      */
-    /*
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-*/
+
     /**
      * Show the application dashboard.
      *
@@ -24,14 +20,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $pizzas= Pizza::paginate(2);
+        $pizzas = Pizza::paginate(3);
         $title = 'Pizzas';
         $data = ["title" => $title, 'pizzas' => $pizzas];
 
-        return view('home',$data);
+        return view('home', $data);
     }
-
-    
-
-   
 }

@@ -11,9 +11,10 @@ class Pizza extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['text','picture','prix'];
+    protected $fillable = ['text', 'picture', 'prix'];
 
-    public function ingredients() :BelongsToMany{
-        return $this->belongsToMany(Ingredient::class,'garnitures','idPizza','idIngredient')->withPivot('id','order','quantity','idPizza','idIngredient');
+    public function ingredients(): BelongsToMany
+    {
+        return $this->belongsToMany(Ingredient::class, 'garnitures', 'idPizza', 'idIngredient')->withPivot('id', 'order', 'quantity', 'idPizza', 'idIngredient');
     }
 }
