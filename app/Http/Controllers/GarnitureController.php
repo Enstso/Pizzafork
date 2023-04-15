@@ -27,7 +27,7 @@ class GarnitureController extends Controller
     {
         $ingredients = Ingredient::all();
         $pizza = Pizza::find($id);
-        $titre = "Nouvelle Ingrédient de la garniture";
+        $titre = "Nouvel Ingrédient de la garniture";
         $data = ['title' => $titre, 'pizza' => $pizza, 'ingredients' => $ingredients];
         return view('garniture-form', $data);
     }

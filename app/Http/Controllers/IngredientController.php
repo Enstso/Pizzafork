@@ -22,7 +22,7 @@ class IngredientController extends Controller
 
     public function create()
     {
-        $titre = "Nouvelle Ingrédient";
+        $titre = "Nouvel Ingrédient";
         $data = ['title' => $titre];
         return view('ingredient-form', $data);
     }
