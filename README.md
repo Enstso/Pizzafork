@@ -213,17 +213,17 @@ Connectons nous en tant qu 'administrateur :
 
 ![img](imgReadme/f2.PNG)
 
-la page principale du compte admin, Il a possibilités de d'ajouter, modifier, suppimer et consulter la garnitures des pizzas  :
+Dans la page principale du compte admin, Il peut ajouter, modifier, suppimer et consulter la garnitures des pizzas  :
 
 ![img](imgReadme/f3.PNG)
 
 Nous y reviendrons plus tard, consultons les ingrédients disponibles.
 
-Nosu pouvons que pour le moment le seul ingrédient disponible est la pâte à pizza :
+Nous pouvons voir que pour le moment le seul ingrédient disponible est la pâte à pizza :
 
 ![img](imgReadme/f4.PNG)
 
-Ajoutons un nouvelle ingrédient en cliquant sur le bouton +.
+Ajoutons un nouvel ingrédient en cliquant sur le bouton +.
 
 Dans le formulaire de création nous saisissons son nom "fromage" et une photo :
 
@@ -233,7 +233,7 @@ L'ingrédient a bien été ajouté :
 
 ![img](imgReadme/f6.PNG)
 
-Modifions le en lui donnat le nom mozzarela :
+Modifions le, en lui donnant le nom mozzarela :
 
 ![img](imgReadme/f7.PNG)
 
@@ -301,11 +301,11 @@ Nous pouvons voir la commande précédente :
 
 ![img](imgReadme/f22.PNG)
 
-Nous cliquons sur ma commande et nous pouvons voir les pizzas de la commande :
+Nous cliquons sur la commande et nous pouvons voir les pizzas de la commande :
 
 ![img](imgReadme/f23.PNG)
 
-Par gourmandise Adrien recommande 3 française :
+Par gourmandise Adrien commande 3 française :
 
 ![img](imgReadme/f24.PNG)
 
@@ -313,7 +313,7 @@ la commande a été validée :
 
 ![img](imgReadme/f25.PNG)
 
-Les pizzas de la commande nous retrouvons les  3 française :
+Dans la commande, nous retrouvons les  3 française :
 
 ![img](imgReadme/f26.PNG)
 
