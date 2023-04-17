@@ -9,6 +9,7 @@ use Illuminate\View\View;
 use App\Models\User;
 use App\Models\Panier;
 use App\Models\Commande;
+use Ramsey\Uuid\Type\Decimal;
 
 class PanierController extends Controller
 {
@@ -51,7 +52,7 @@ class PanierController extends Controller
         return redirect()->back()->with('info2', 'Pizza supprimée du panier');
     }
 
-    public function Commander(int $idUser, int $depenseTotal)
+    public function Commander(int $idUser, float $depenseTotal)
     {
         $pizzas = Panier::where('acheter', 0)->where('idUser', $idUser)->get();
         $commande = new Commande;
@@ -111,4 +112,23 @@ class PanierController extends Controller
         $panier->save();
         return redirect()->back();
     }
+
+    public function CommandesClient () : View{
+        $users = User::Where('admin',0)->where('chef',0)->get();
+        (array)$data = ['users'=>$users];
+        
+        return view('commandesClient',$data);
+    }
+
+    public function CommandeClient(int $idUser, $idCommande): View
+    {
+        $commande = Commande::find($idCommande);
+        $user = User::find($idUser);
+        $depensesTotal = 0;
+        $pizzas = $commande->pizzas()->get();
+        $depensesTotal = $commande->total;
+        $data = ['pizzas' => $pizzas, 'commande' => $commande, 'depensesTotal' => $depensesTotal];
+        return view('commandeClient', $data);
+    }
+
 }

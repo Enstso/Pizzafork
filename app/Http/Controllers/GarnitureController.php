@@ -44,8 +44,14 @@ class GarnitureController extends Controller
 
     public function delete(int $id)
     {
-        Garniture::destroy($id);
-        return redirect()->back()->with('info2', 'Ingrédient supprimée');
+        $ingredient = Garniture::find($id);
+        $ingredient = $ingredient->idIngredient;
+        if ($ingredient == 1) {
+            return redirect()->back()->with('info2', 'Vous ne pouvez supprimer la pâte à pizza');
+        } else {
+            Garniture::destroy($id);
+            return redirect()->back()->with('info2', 'Ingrédient supprimée');
+        }
     }
 
     public function save(GarnitureRequest $request)

@@ -317,3 +317,34 @@ Dans la commande, nous retrouvons les  3 française :
 
 ![img](imgReadme/f26.PNG)
 
+Une évolution a été faîtes, nous avons un chef qui a la possibilité de voir les commandes des clients.
+
+Le client Adrien a passé 3 commandes sur le site de pizzafork :
+
+![img](imgReadme/f41.PNG)
+
+Nous créons un nouvel utilisateur Enstso, qui commandera 3 pizzas :
+
+![img](imgReadme/f42.PNG)
+
+Sa commande :
+
+![img](imgReadme/f43.PNG)
+
+login chef :
+
+chef@outlook.fr
+
+siojjr509
+
+je me connecte en tant que chef :
+
+![img](imgReadme/f44.PNG)
+
+Nous pouvons voir les commandes d'Adrien et Enstso :
+
+![img](imgReadme/f45.PNG)
+
+la commande de Enstso :
+
+![img](imgReadme/f46.PNG)

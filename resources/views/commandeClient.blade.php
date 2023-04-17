@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('body')
     <div class="container">
-        <h1 class="text-dark mt-120">La Commande du {{ $commande->date_commande }}</h1>
+        <h1 class="text-dark">La Commande du {{ $commande->date_commande }}</h1>
         @foreach ($pizzas as $pizza)
             <div class="card mb-3">
                 <div class="card-body">
@@ -35,7 +35,7 @@
         @endforeach
         <p>Dépenses total : {{ $depensesTotal }}</p>
         <div class="mt-3">
-            <a href="/commandes/{{Auth::id()}}" class="btn btn-dark">Retour</a>
+            <a href="/commandesClients" class="btn btn-dark">Retour</a>
         </div>
     </div>
 @endsection

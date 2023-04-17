@@ -37,6 +37,13 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/quantity/plus/{id}', [PanierController::class, 'plus']);
     });
 
+    Route::middleware(['chef'])->group(function () {
+       Route::get('/',[PanierController::class,'CommandesClient']);
+       Route::get('/commandesClients',[PanierController::class,'CommandesClient']);
+       Route::get('/commandeClient/{idUser}/{idCommande}', [PanierController::class, 'CommandeClient']);
+    });
+
+
     Route::middleware(['admin'])->group(function () {
         Route::get('/', [PizzaController::class, 'index'])->name('pizzas');
         Route::get('/pizzas', [PizzaController::class, 'index'])->name('pizzas');

@@ -38,7 +38,7 @@
 
                                             <h5 class="card-title">{{ $pizza->text }}</h5>
                                             <p class="card-text">{{ $pizza->prix . ' €' }}</p>
-                                            @if (isset($user_id))
+                                            @if (isset($user_id) and Auth::user()->chef!=1)
                                                 <a href="/panier/{{ $user_id }}/{{ $pizza->id }}"
                                                     class="btn btn-dark me-2">Au panier</a>
                                             @endif

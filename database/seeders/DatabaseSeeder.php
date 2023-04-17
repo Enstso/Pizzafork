@@ -27,6 +27,16 @@ class DatabaseSeeder extends Seeder
                 "email_verified_at" => now(),
                 "created_at" => now(),
             ]);
+
+            DB::table('users')->insert([
+
+                "name" => 'chef',
+                "email" => 'chef@outlook.fr',
+                "password" => '$2y$10$KQD71wKhhl8K3OwUSPlav.WWqqmFi5xgAOTQ56ApgOzwH02AAo6da',
+                "chef"  =>1,
+                "email_verified_at" => now(),
+                "created_at" => now(),
+            ]);
         }
         //Ingredient::factory(2)->create();
         Ingredient::create(['text' => config('app.nom'), 'picture' => config('app.picture')]);

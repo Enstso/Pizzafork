@@ -91,10 +91,13 @@
                                 </div>
 
                             </li>
-                            @if (Auth::user()->admin == 0)
+                            @if (Auth::user()->admin == 0 && Auth::user()->chef==0)
                                 <a class="nav-link " href="/panier/{{ Auth::id()}}"><i
                                         class="bi bi-basket2"></i></a>
                                 <a class="nav-link " href="/commandes/{{ Auth::id()  }}">Mes commandes</a>
+                            @elseif(Auth::user()->chef ==1)
+                            <a class="nav-link " href="/commandesClients">Les commandes</a>
+                            
                             @endif
 
                         @endguest
