@@ -20,9 +20,8 @@
                     <table class="table table-hover table-striped">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
                                 <th scope="col" class="col-3">Pizza</th>
-                                <th scope="col" class="col-3">description</th>
+                                <th scope="col" class="col-3">Nom</th>
                                 <th scope="col" class="col-3">Prix</th>
                                 <th scope="col" class="col-3">Action</th>
                             </tr>
@@ -30,7 +29,6 @@
                         <tbody>
                             @foreach ($pizzas as $pizza)
                                 <tr>
-                                    <th scope="row">{{ $pizza->id }}</th>
                                     @if ($pizza->picture[0] == 'i')
                                         <td class="col-3"><img src="{{ Storage::url($pizza->picture) }}" alt=""
                                                 class="img-fluid"></td>
@@ -55,7 +53,6 @@
                                         </a>
                                     </td>
                                 </tr>
-                                
                             @endforeach
                         </tbody>
                     </table>

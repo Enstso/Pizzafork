@@ -32,7 +32,7 @@
                             </div>
                             <div class="col-12 mt-3">
                                 <form-label for="picture">Prix : </form-label>
-                                <input type="number" name="prix" id="prix"
+                                <input type="number" step="0.01" name="prix" id="prix" value="{{ old('prix', $pizza->prix ?? '', false) }}"
                                     class="form-control  @error('prix') is-invalid @enderror">
                                 @error('prix')
                                     <div class="invalid-feedback">{{ $message }}</div>

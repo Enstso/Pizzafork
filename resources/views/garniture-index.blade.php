@@ -21,7 +21,7 @@
 
                         <thead>
                             <tr>
-                                <th class="col-1">Id</th>
+                                
                                 <th class="col-5">Image</th>
                                 <th class="col-1">Ordre</th>
                                 <th class="col-1">Quantité</th>
@@ -32,7 +32,7 @@
                             @forelse ($ingredients as $ingredient)
                                 <tr>
                                     <div class="row my-3 border-bottom pb-3">
-                                        <td class="col-1">{{ $ingredient->pivot->id }}</td>
+                                        
 
                                         @if ($ingredient->picture[0] == 'i')
                                             <td class="col-5"><img src="{{ Storage::url($ingredient->picture) }}"

@@ -20,7 +20,6 @@
                     <table class="table table-hover table-striped">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
                                 <th scope="col" class="col-3">image</th>
                                 <th scope="col" class="col-3">description</th>
                                 <th scope="col" class="col-3">Action</th>
@@ -29,7 +28,6 @@
                         <tbody>
                             @foreach ($ingredients as $ingredient)
                                 <tr>
-                                    <th scope="row">{{ $ingredient->id }}</th>
                                     @if ($ingredient->picture[0] == 'i')
                                         <td class="col-3"><img src="{{ Storage::url($ingredient->picture) }}"
                                                 alt="" class="img-fluid"></td>

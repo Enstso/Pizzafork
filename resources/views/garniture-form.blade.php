@@ -14,7 +14,7 @@
                     <div class=form-group>
                         <label for="ingredient">Ingrédient : </label>
                         <select name="idIngredient" id="idIngredient" onChange="combo(this, 'theinput')"
-                            class="form-control  @error('idIngredient') is-invalid @enderror">
+                            class="form-control  @error('idIngredient') is-invalid @enderror" >
                             @foreach ($ingredients as $ingredient)
                                 <option value="{{ $ingredient->id }}">{{ $ingredient->text }}</option>
                             @endforeach
@@ -27,7 +27,7 @@
 
                         <form-label for="order ">Ordre : </form-label>
                         <input type="text" name="order" id="order"
-                            value="{{ isset($garniture) ? $garniture->order : '' }}"
+                            value="{{ old('order', $garniture->order ?? '', false) }}"
                             class="form-control  @error('order') is-invalid @enderror">
                         @error('order')
                             <div class="invalid-feedback">{{ $message }}</div>
@@ -36,7 +36,7 @@
                     <div class=form-group>
                         <form-label for="quantity">Quantite : </form-label>
                         <input type="text" name="quantity"
-                            id="quantity"value="{{ isset($garniture) ? $garniture->quantity : '' }}"class="form-control  @error('quantity') is-invalid @enderror">
+                            id="quantity"value="{{ old('quantity', $garniture->quantity ?? '', false) }}"class="form-control  @error('quantity') is-invalid @enderror">
                         @error('quantity')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
