@@ -8,7 +8,7 @@ Composer is a dependency manager for PHP, which is required to handle the PHP li
 
 Required PHP Extensions :
 
-Please ensure that the following PHP extensions are enabled:
+Please ensure that the following PHP extensions are enabled :
 
 ![img](imgReadme/f38.PNG)
 
