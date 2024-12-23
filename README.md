@@ -1,65 +1,68 @@
-Le projet est en php8.1 et laravel 9, pour éviter toutes configurations il est préférable pour le moment d'utiliser le serveur web laragon.
+The project is using PHP 8.1 and Laravel 9. To avoid any complex configurations, it is recommended to use Laragon as the web server for now.
 
-Pour Laragon : https://github.com/leokhoa/laragon/releases/download/6.0.0/laragon-wamp.exe
+For Laragon : https://github.com/leokhoa/laragon/releases/download/6.0.0/laragon-wamp.exe
 
-Installer Composer : https://getcomposer.org/Composer-Setup.exe
+Install Composer : https://getcomposer.org/Composer-Setup.exe
 
-Les extensions PHP requises :
+Composer is a dependency manager for PHP, which is required to handle the PHP libraries and packages in the Laravel project.
+
+Required PHP Extensions :
+
+Please ensure that the following PHP extensions are enabled:
 
 ![img](imgReadme/f38.PNG)
 
-Après avoir installé laragon nous faisons un simple git clone du projet  dans C:\laragon\www
+After installing Laragon, simply perform a git clone of the project into the C:\laragon\www directory.
+
+## Environment Configuration
 
 
-## Configuration de l'environnement
+step 1 git clone dans C:\laragon\www
 
+step 2 composer update To retrieve the necessary folders/files.
 
-étape 1 git clone dans C:\laragon\www
+step 3 Create the database using php artisan migrate (with Laragon, there's no need to create it manually beforehand).
 
-étape 2 composer update pour récupérer les différents dossiers/fichiers nécessaire.
-
-étape 3 Créer la base de données php artisan migrate (laragon pas besoin de la créer préalablement).
-
-Si un autre serveur web :
+ If using another web server :
 
 ![img](imgReadme/f30.PNG)
 
-étape 4 renommer le fichier .env.example par .env
+step 4 Rename the .env.example file to .env
 
 ![img](imgReadme/f31.PNG)
 
-étape 5 configurer le fichier .env
+step 5 To configure the .env file
  
 ![img](imgReadme/f32.PNG)
 
-étape 6 créer un  lien symbolique d'images --> commande php artisan storage:link 
+step 6 To create a symbolic link for the storage directory --> command php artisan storage:link 
 
 ![img](imgReadme/f33.PNG)
 
 ![img](imgReadme/f34.PNG)
 
-étape 7 Remplir la base de données php artisan db:seed
+step 7 Fill the database using php artisan db:seed
 
 ![img](imgReadme/f35.PNG)
 
 ![img](imgReadme/f36.PNG)
 
-Cela nous permet de créer l'utilisateur admin.
+This allows us to create the admin user.
 
-login de l'admin :
+Admin Login :
 
 adresse mail : admin@outlook.fr
 
 mot de passe : siojjr509
 
 
-étape 8 générer une clé d'utilisation : php artisan key:generate
+step 8  Generate an application key : php artisan key:generate
 
 ![img](imgReadme/f37.PNG)
 
-Il n'est pas nécessaire de faire ( php artisan serve).
+ It is not necessary to do ( php artisan serve).
 
-## Diagramme de classe :
+##  Class Diagram :
 
 ```plantuml
 @startuml
@@ -133,7 +136,7 @@ panier"1...*"  --- "1..1" commande
 pizzas"1..*" --- "0...*" panier
 @enduml
 ```
-## <u>Cas d'utilisation Visiteur</u> :
+## <u>Use Case Visiteur</u> :
 
 ```plantuml
 @startuml Pizzafork
@@ -150,7 +153,7 @@ package Pizzafork{
 @enduml
 ```
 
-## <u>Cas d'utilisation Client</u> :
+## <u>Use Case Client</u> :
 
 ```plantuml
 @startuml Pizzafork
@@ -173,7 +176,7 @@ package Pizzafork{
 @enduml
 ```
 
-## <u>Cas d'utilisation Admin</u> :
+## <u>Use Case Admin</u> :
 
 ```plantuml
 @startuml Pizzafork
@@ -193,158 +196,158 @@ package Pizzafork{
 }
 @enduml
 ```
-La page d'accueil du site :
+The homepage of the website :
 
 ![img](imgReadme/f1.PNG)
 
-Pour tester la pagination nous l'avons paramétrée à 2 pizzas par pages :
+To test the pagination, we have set it to 2 pizzas per page :
 
 ![img](imgReadme/f27.PNG)
 
 ![img](imgReadme/f28.PNG)
 
-login de l'admin :
+Admin Login :
 
-adresse mail : admin@outlook.fr
+email : admin@outlook.fr
 
-mot de passe : siojjr509
+password : siojjr509
 
-Connectons nous en tant qu 'administrateur :
+ Let's log in as an administrator :
 
 ![img](imgReadme/f2.PNG)
 
-Dans la page principale du compte admin, Il peut ajouter, modifier, suppimer et consulter la garnitures des pizzas  :
+ On the main page of the admin account, they can add, edit, delete, and view pizza toppings :
 
 ![img](imgReadme/f3.PNG)
 
-Nous y reviendrons plus tard, consultons les ingrédients disponibles.
+We will come back to this later, let's check the available ingredients.
 
-Nous pouvons voir que pour le moment le seul ingrédient disponible est la pâte à pizza :
+We can see that, for now, the only available ingredient is pizza dough :
 
 ![img](imgReadme/f4.PNG)
 
-Ajoutons un nouvel ingrédient en cliquant sur le bouton +.
+Let's add a new ingredient by clicking the + button.
 
-Dans le formulaire de création nous saisissons son nom "fromage" et une photo :
+In the creation form, we enter the name "cheese" and upload a photo :
 
 ![img](imgReadme/f5.PNG)
 
-L'ingrédient a bien été ajouté :
+The ingredient has been successfully added :
 
 ![img](imgReadme/f6.PNG)
 
-Modifions le, en lui donnant le nom mozzarela :
+Let's modify it by changing its name to mozzarella :
 
 ![img](imgReadme/f7.PNG)
-
-Il a été modifié :
+ 
+ It has been modified :
 
 ![img](imgReadme/f8.PNG)
 
-Rajoutons un nouvel ingrédient, il nous sera utile pour la suite (poivron) :
+Let's add a new ingredient, it will be useful for the next steps (poivrons) :
 
 ![img](imgReadme/f9.PNG)
 
-Sur la page principale du compte admin, nous cliquons sur l'icône grise pour consulter la garniture de la Buffalo :
+On the main page of the admin account, we click on the gray icon to view the topping of the Buffalo pizza :
 
 ![img](imgReadme/f10.PNG)
 
-Pour le moment la garniture de la buffalo n'a que la pâte à pizza :
+At the moment, the topping of the Buffalo pizza only consists of pizza dough :
 
 ![img](imgReadme/f11.PNG)
 
-Rajoutons un nouvel ingrédient à la garniture :
+Let's add a new ingredient to the topping :
 
 ![img](imgReadme/f12.PNG)
 
-L'ingrédient a bien ajouté à sa garniture :
+The ingredient has been successfully added to its topping :
 
 ![img](imgReadme/f13.PNG)
 
-Déconnectons-nous :
+Let's log out :
 
 ![img](imgReadme/f14.PNG)
 
 ![img](imgReadme/f15.PNG)
 
-Nous créeons un nouvel utilisateur du nom d'Adrien :
+We create a new user named Adrien :
 
 ![img](imgReadme/f16.PNG)
 
-Après la validation de l'inscription, nous somme redirigée sur la page d'accueil :
+After the registration is validated, we are redirected to the homepage :
 
 ![img](imgReadme/f17.PNG)
 
-Pour le moment notre panier est vide :
+For now, our cart is empty :
 
 ![img](imgReadme/f18.PNG)
 
-Rajoutons des pizzas au panier :
+Let's add some pizzas to the cart :
 
 ![img](imgReadme/f19.PNG)
 
-Nous prenons 2 Buffalo :
+We'll take 2 Buffalo :
 
 ![img](imgReadme/f20.PNG)
 
-Nous avons un prix total de 40 €, commandons.
+We have a total price of 40€, let's place the order.
 
-la commande a bien été reçu :
+The order has been successfully received :
 
 ![img](imgReadme/f21.PNG)
 
-Cliquons sur mes commandes pour qu' Adrien consulte ses commandes :
+Click on 'My Orders' so Adrien can check his orders :
 
 ![img](imgReadme/f29.PNG)
 
-Nous pouvons voir la commande précédente :
+We can see the previous order :
 
 ![img](imgReadme/f22.PNG)
 
-Nous cliquons sur la commande et nous pouvons voir les pizzas de la commande :
+We click on the order and we can see the pizzas in the order :
 
 ![img](imgReadme/f23.PNG)
 
-Par gourmandise Adrien commande 3 française :
+Out of greed, Adrien orders 3 French ones :
 
 ![img](imgReadme/f24.PNG)
 
-la commande a été validée :
+The order has been confirmed :
 
 ![img](imgReadme/f25.PNG)
 
-Dans la commande, nous retrouvons les  3 française :
+In the order, we find the 3 French ones :
 
 ![img](imgReadme/f26.PNG)
 
-Une évolution a été faîtes, nous avons un chef qui a la possibilité de voir les commandes des clients.
+An update has been made; we now have a chef who can view the customers' orders.
 
 Le client Adrien a passé 3 commandes sur le site de pizzafork :
 
 ![img](imgReadme/f41.PNG)
 
-Nous créons un nouvel utilisateur Enstso, qui commandera 3 pizzas :
+We create a new user, Enstso, who will order 3 pizzas :
 
 ![img](imgReadme/f42.PNG)
 
-Sa commande :
+His order :
 
 ![img](imgReadme/f43.PNG)
 
-login chef :
+Chef login :
 
 chef@outlook.fr
 
 siojjr509
 
-je me connecte en tant que chef :
+I log in as a chef :
 
 ![img](imgReadme/f44.PNG)
 
-Nous pouvons voir les commandes d'Adrien et Enstso :
+We can see Adrien's and Enstso's orders :
 
 ![img](imgReadme/f45.PNG)
 
-la commande de Enstso :
+Enstso's order :
 
 ![img](imgReadme/f46.PNG)
